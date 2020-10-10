@@ -41,9 +41,9 @@ class _homepageState extends State<homepage> {
 
   void _bulb1() async {
     if (r1 == 'off')
-      r1 = await Dio().get('192.168.0.164/1/on');
+      r1 = await Dio().get('http://192.168.0.164/1/on');
     else
-      r1 =await Dio().get('192.168.0.164/1/off');
+      r1 =await Dio().get('http://192.168.0.164/1/off');
     setState(() async {
       if (r1 == 'on')
         _b1 = true;
@@ -52,9 +52,9 @@ class _homepageState extends State<homepage> {
 
   void _bulb2() async {
     if (r2 == 'off')
-      r2 =await Dio().get('192.168.0.164/2/on');
+      r2 =await Dio().get('http://192.168.0.164/2/on');
     else
-      r2 =await Dio().get('192.168.0.164/2/off');
+      r2 =await Dio().get('http://192.168.0.164/2/off');
     setState(() async {
       if (r2 == 'on')
         _b2 = true;
@@ -63,9 +63,9 @@ class _homepageState extends State<homepage> {
 
   void _bulb3() async {
     if (r3 == 'off')
-      r3 = await Dio().get('192.168.0.164/3/on');
+      r3 = await Dio().get('http://192.168.0.164/3/on');
     else
-      r3 = await Dio().get('192.168.0.164/3/off');
+      r3 = await Dio().get('http://192.168.0.164/3/off');
     setState(() async {
       if (r3 == 'on')
         _b3 = true;
@@ -74,7 +74,7 @@ class _homepageState extends State<homepage> {
 
   void _gethumidity() {
     setState(() async {
-      response =await Dio().get('192.168.0.164/humidity');
+      response =await Dio().get('http://192.168.0.164/humidity');
       hum =response.value;
       if(hum >0)
         _visible=true;
@@ -83,7 +83,7 @@ class _homepageState extends State<homepage> {
 
   void _getTemp() {
     setState(() async {
-      response = await Dio().get('192.168.0.164/temperature');
+      response = await Dio().get('http://192.168.0.164/temperature');
       temp = response.value;
       if(temp >0)
         _visible=true;
